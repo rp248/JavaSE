@@ -3,6 +3,8 @@ package com.guide.java.lambdas.apis;
 import com.guide.java.lambdas.models.Customer;
 
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class CustomerUtility {
@@ -16,6 +18,25 @@ public class CustomerUtility {
     public static void filterCustomersUsingPredicate(List<Customer> customers, Predicate<Customer> predicate) {
         for (Customer customer: customers) {
             predicate.test(customer);
+        }
+    }
+
+    public static void filterCustomersAndConsume(List<Customer> customers, Predicate<Customer> predicate,
+                                                 Consumer<Customer> customerConsumer) {
+        for (Customer customer:customers){
+            if (predicate.test(customer))
+                customerConsumer.accept(customer);
+        }
+    }
+
+    public static void filterCustomersAndGetName(List<Customer> customers, Predicate<Customer> predicate,
+                                                 Consumer<String> customerConsumer,
+                                                 Function<Customer, String> customerGetNameFunction) {
+        for (Customer customer: customers) {
+            if (predicate.test(customer)) {
+                String customerName = customerGetNameFunction.apply(customer);
+                customerConsumer.accept(customerName);
+            }
         }
     }
 }
