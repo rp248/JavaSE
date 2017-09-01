@@ -1,3 +1,5 @@
  A functional interface is any interface that contains only one abstract method. (A functional interface may contain
  one or more default methods or static methods.) Because a functional interface contains only one abstract method,
  you can omit the name of that method when you implement it.
+
+ A lambda expression is an instance of functional interface.
