@@ -2,6 +2,7 @@ package com.guide.java.lambdas.apis;
 
 import com.guide.java.lambdas.models.Customer;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
@@ -51,5 +52,9 @@ public class CustomerUtility {
             }
         }
 
+    }
+    public static <T> T addAndReturn(T element, Collection<T> collection){
+        collection.add(element);
+        return element;
     }
 }
