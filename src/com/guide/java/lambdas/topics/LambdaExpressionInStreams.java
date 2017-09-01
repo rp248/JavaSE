@@ -1,13 +1,13 @@
 package com.guide.java.lambdas.topics;
 
 import com.guide.java.Topic;
-import com.guide.java.lambdas.apis.CustomerUtility;
 import com.guide.java.lambdas.models.Customer;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class CustomerFunctionalInterface implements Topic {
+public class LambdaExpressionInStreams implements Topic {
+
     @Override
     public void run() {
         Customer mobileCustomer = new Customer();
@@ -23,8 +23,8 @@ public class CustomerFunctionalInterface implements Topic {
         scriptCustomer.setName("Kotlin");
 
         List<Customer> customers = Arrays.asList(mobileCustomer, genericCustomer, scriptCustomer);
-
-        CustomerUtility.filterCustomersAndConsume(customers, customer->customer.getAge()>10,
-                customer->System.out.println(customer.getName()));
+        customers.stream().filter(customer -> customer.getAge()>10)
+                .map(customer -> customer.getName())//.map(customer -> customer.getAge()) valid
+                .forEach(customerName -> System.out.println(customerName));
     }
 }

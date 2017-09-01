@@ -39,4 +39,17 @@ public class CustomerUtility {
             }
         }
     }
+
+    public static <X,Y> void filterCustomersAndGetNameUsingGenerics(
+            List<X> customers, Predicate<X> predicate,
+            Consumer<Y> customerConsumer,
+            Function<X, Y> customerGetNameFunction){
+        for (X x: customers) {
+            if (predicate.test(x)) {
+                Y y = customerGetNameFunction.apply(x);
+                customerConsumer.accept(y);
+            }
+        }
+
+    }
 }
