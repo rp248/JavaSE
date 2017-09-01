@@ -3,3 +3,5 @@
  you can omit the name of that method when you implement it.
 
  A lambda expression is an instance of functional interface.
+
+ We use lambda expressions to create anonymous methods

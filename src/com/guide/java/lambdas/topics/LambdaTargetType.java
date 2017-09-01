@@ -30,6 +30,8 @@ public class LambdaTargetType implements Topic {
          * the function type.
          *
          * Functional interfaces acts as Target type for lambda expressions.
+         *
+         * To use lambda expressions, target type should be a functional interface.
          */
 
         Supplier<Runnable> runnerSupplier = () -> () -> {};

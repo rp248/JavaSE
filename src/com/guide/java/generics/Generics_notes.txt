@@ -1,0 +1,5 @@
+We use Generics to define parameter types while declaring classes ,interfaces and methods.
+Generics enables code re-use with different inputs.
+Advantages:
+1. Strong type checking at compile time.
+2. Avoids type casting.
